@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <package name="user"  extends="struts-default">
+        <!--index.jsp-->
+        <default-action-ref name="index"></default-action-ref>
+        <action name="index">
+            <result>/user/index.jsp</result>
+        </action>
+
+        <!--前台-->
+        <!--用户登录-->
+        <action name="user_login" class="userAction" method="login">
+            <result name="user">/user/main.jsp</result>
+            <result name="admin">/admin/adminMain.jsp</result>
+            <result name="error">/user/index.jsp</result>
+        </action>
+
+        <!--用户注册-->
+        <action name="rgUser" class="userAction" method="rgUser">
+            <result name="success">/user/index.jsp</result>
+            <result name="error">/user/rgUser.jsp</result>
+        </action>
+
+        <!--用户修改密码-->
+        <action name="updateUserPwd" class="userAction" method="updateUserPwd">
+            <result name="success">/user/index.jsp</result>
+            <result name="error">/user/updateUserPwd.jsp</result>
+        </action>
+
+        <!--用户查询-购物车中商品-->
+        <action name="userQueryCartitem" class="cartitemAction" method="queryCartitem">
+            <result name="success">/user/userQueryCartitem.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户删除-购物车中商品-->
+        <action name="userDeleteCartitem" class="cartitemAction" method="deleteCartitem">
+            <result name="success">/user/userQueryCartitem.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户添加Clothes类商品-加入购物车-->
+        <action name="userAddCartitemByClothes" class="cartitemAction" method="addCartitem">
+            <result name="success">/user/clothes.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户添加Food类商品-加入购物车-->
+        <action name="userAddCartitemByFood" class="cartitemAction" method="addCartitem">
+            <result name="success">/user/food.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户添加Live类商品-加入购物车-->
+        <action name="userAddCartitemByLive" class="cartitemAction" method="addCartitem">
+            <result name="success">/user/live.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户添加Travel类商品-加入购物车-->
+        <action name="userAddCartitemByTravel" class="cartitemAction" method="addCartitem">
+            <result name="success">/user/travel.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户查询-衣类-->
+        <action name="queryClothes" class="goodsAction" method="queryClothes">
+            <result name="success">/user/clothes.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户查询-食类-->
+        <action name="queryFood" class="goodsAction" method="queryFood">
+            <result name="success">/user/food.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户查询-住类-->
+        <action name="queryLive" class="goodsAction" method="queryLive">
+            <result name="success">/user/live.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+        <!--用户查询-行类-->
+        <action name="queryTravel" class="goodsAction" method="queryTravel">
+            <result name="success">/user/travel.jsp</result>
+            <result name="error">/user/main.jsp</result>
+        </action>
+
+
+
+        <!--后台-->
+        <!--管理员查询-用户信息-->
+        <action name="queryUser" class="adminAction" method="queryUser">
+            <result name="success">/admin/queryUser.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员查询-用户信息-通过用户ID-->
+        <action name="queryUserById" class="adminAction" method="queryUserById">
+            <result name="success">/admin/updateUser.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员查询-购物车信息-->
+        <action name="queryCartitem" class="adminAction" method="queryCartitem">
+            <result name="success">/admin/queryCartitem.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员查询-购物车信息-通过购物车ID-->
+        <action name="queryCartitemById" class="adminAction" method="queryCartitemById">
+            <result name="success">/admin/updateCartitem.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员查询-商品信息-->
+        <action name="queryGoods" class="adminAction" method="queryGoods">
+            <result name="success">/admin/queryGoods.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员查询-商品信息-通过商品ID-->
+        <action name="queryGoodsById" class="adminAction" method="queryGoodsById">
+            <result name="success">/admin/updateGoods.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员删除-用户信息-->
+        <action name="deleteUser" class="adminAction" method="deleteUser">
+            <result name="success">/admin/queryUser.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员删除-购物车信息-->
+        <action name="deleteCartitem" class="adminAction" method="deleteCartitem">
+            <result name="success">/admin/queryCartitem.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员删除-商品信息-->
+        <action name="deleteGoods" class="adminAction" method="deleteGoods">
+            <result name="success">/admin/queryGoods.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员添加-用户信息-->
+        <action name="addUser" class="adminAction" method="addUser">
+            <result name="success">/admin/queryUser.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员添加-购物车信息-->
+        <action name="addCartitem" class="adminAction" method="addCartitem">
+            <result name="success">/admin/queryCartitem.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员添加-商品信息-->
+        <action name="addGoods" class="adminAction" method="addGoods">
+            <result name="success">/admin/queryGoods.jsp</result>
+            <result name="error">/admin/adminMain.jsp</result>
+        </action>
+
+        <!--管理员修改-用户信息-->
+        <action name="updateUser" class="adminAction" method="updateUser">
+            <result name="success">/admin/queryUser.jsp</result>
+            <result name="error">/admin/updateUser.jsp</result>
+        </action>
+
+        <!--管理员修改-购物车信息-->
+        <action name="updateCartitem" class="adminAction" method="updateCartitem">
+            <result name="success">/admin/queryCartitem.jsp</result>
+            <result name="error">/admin/updateCartitem.jsp</result>
+        </action>
+
+        <!--管理员修改-商品信息-->
+        <action name="updateGoods" class="adminAction" method="updateGoods">
+            <result name="success">/admin/queryGoods.jsp</result>
+            <result name="error">/admin/updateGoods.jsp</result>
+        </action>
+
+        <!--管理员批量删除-用户信息-->
+        <action name="deleteUserAll" class="adminAction" method="deleteUserAll">
+            <result name="success">/admin/queryUser.jsp</result>
+            <result name="error">/admin/queryUser.jsp</result>
+        </action>
+
+        <!--管理员批量删除-购物车信息-->
+        <action name="deleteCartitemAll" class="adminAction" method="deleteCartitemAll">
+            <result name="success">/admin/queryCartitem.jsp</result>
+            <result name="error">/admin/queryCartitem.jsp</result>
+        </action>
+
+        <!--管理员批量删除-商品信息-->
+        <action name="deleteGoodsAll" class="adminAction" method="deleteGoodsAll">
+            <result name="success">/admin/queryGoods.jsp</result>
+            <result name="error">/admin/queryGoods.jsp</result>
+        </action>
+
+        <!--带分页的查询商品的执行方法-->
+        <action name="queryGoodsPaging" class="adminAction" method="queryGoodsPaging">
+            <result name="success">/admin/queryGoods.jsp</result>
+        </action>
+
+        <!--带分页的查询购物车的执行方法-->
+        <action name="queryCartitemPaging" class="adminAction" method="queryCartitemPaging">
+            <result name="success">/admin/queryCartitem.jsp</result>
+        </action>
+
+    </package>
+
+    <!--上传文件-->
+    <package name="upFile" extends="struts-default">
+        <action name="upFile" class="upFileAction" method="up">
+            <result>/upFile/upFile_success.jsp</result>
+            <result name="error">/upFile/upFile_error.jsp</result>
+        </action>
+    </package>
+
+</struts>
